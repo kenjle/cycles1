@@ -1,33 +1,14 @@
 import java.awt.event.WindowAdapter;
 import javax.swing.*;
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.FlowLayout;
 import java.io.IOException;
+import java.awt.Color;
+import java.awt.Dimension;
+
 public class Cycles extends WindowAdapter{
     JFrame f;
     // Method for starting the game
     public void play(String[] args) throws IOException{
-
-        File file = new File("c:\\Users\\342744547\\Downloads\\crescent-moon-icon-isolated-on-transparent-background-free-png.png");
-        BufferedImage bufferedImage = ImageIO.read(file);
-
-        ImageIcon imageIcon = new ImageIcon(bufferedImage);
-        JFrame jFrame = new JFrame();
-
-        jFrame.setLayout(new FlowLayout());
-        
-        jFrame.setSize(500, 500);
-        JLabel jLabel = new JLabel();
-
-        jLabel.setIcon(imageIcon);
-        jFrame.add(jLabel);
-        jFrame.setVisible(true);
-
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-            
 
 
 
@@ -46,15 +27,10 @@ public class Cycles extends WindowAdapter{
         int answer1 = answer / 86400;
         int night = answer1 - 1;
 
-        JFrame f;
     {  
         ImageIcon img = new ImageIcon("src/imagery/crescent-moon-icon-isolated-on-transparent-background-free-png.png");
-        f=new JFrame();   
-        f.setSize(1280, 720);  
-        f.setLayout(null);  
-        f.setVisible(true);  
-        f.setIconImage(img.getImage());
-        f.add(new JLabel(new ImageIcon("src/imagery/crescent-moon-icon-isolated-on-transparent-background-free-png.png")));
+
+
 
 
             if (answer1 < 1) {
@@ -66,12 +42,27 @@ public class Cycles extends WindowAdapter{
             message1 = "the total amount of nights you going are " + night;
     
             }
+        f=new JFrame();
+        JFrame frame = new JFrame("Cycles");  
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        JLabel label = new JLabel();
+        label.setText("<html><body width='%1s'><h1>Results</h1>"
+        + "<p>" + message
+        + "<p>" + message1);
+        panel.add(label);   
+        label.setVisible(true);
+        frame.add(panel); 
+        frame.pack();
+        frame.setPreferredSize(new Dimension(1080, 480));
+        frame.setVisible(true); 
+        frame.setLocationRelativeTo(null);  
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        frame.setIconImage(img.getImage());
+        frame.add(new JLabel(new ImageIcon("src/imagery/crescent-moon-icon-isolated-on-transparent-background-free-png.png")));
+        frame.getContentPane().setBackground(Color.BLUE);
+    
 
-
-            JOptionPane.showMessageDialog(null,message);
-            JOptionPane.showMessageDialog(null,message1);
-
-                
         }
         {
         };
